@@ -10,4 +10,18 @@ jobs:
        steps: 
            - name: Checkout code
              uses: actions/checkout@v3
+          
+           - name: Setup Java
+             uses: actions/setup-java@v3
+             with:
+                distribution: 'zulu'
+                java-version: '17'
+           - name: Build project
+             run: mvn clean install -DskipTests
+           - name: Login DockerHub
+             run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+           - name: Build docker image
+             run: docker build -t nandoprogrammer/deploy_curso-1.0.0 .
+           - name: push image Docker
+             run: docker push nandoprogrammer/deploy_curso-1.0.0
              
