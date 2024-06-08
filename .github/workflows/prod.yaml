@@ -31,4 +31,4 @@ jobs:
       - name: Pull ima from dockerhub
         run: docker pull nandoprogrammer/deploy_curso:latest
       - name: Run docker container
-        run: docker run -d -p 8080:8080 --name nandoprogrammer/deploy
+        run: docker run -d -p 8080:8080 --name nandoprogrammer/deploy_curso
