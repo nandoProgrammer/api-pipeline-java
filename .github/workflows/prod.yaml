@@ -28,7 +28,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Pull ima from dockerhub
+      - name: Pull image from dockerhub
         run: docker pull nandoprogrammer/deploy_curso:latest
       - name: Run docker container
         run: docker run -d -p 8080:8080 --name deploy_curso nandoprogrammer/deploy_curso
