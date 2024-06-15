@@ -26,7 +26,7 @@ jobs:
         run: docker push nandoprogrammer/deploy_curso
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Pull image from dockerhub
         run: docker pull nandoprogrammer/deploy_curso:latest
